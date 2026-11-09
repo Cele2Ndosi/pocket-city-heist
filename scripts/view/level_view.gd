@@ -51,3 +51,8 @@ func _draw() -> void:
 			var fill: Color = WALL_COLOR if level.tile_at(cell) == Level.Tile.WALL else FLOOR_COLOR
 			draw_rect(rect, fill)
 			draw_rect(rect, GRID_LINE_COLOR, false, 1.0)
+
+## The grid cell under a pixel position (relative to this node).
+## The cell may lie outside the level; check it with Level.in_bounds().
+func pixel_to_cell(pixel: Vector2) -> Vector2i:
+	return Vector2i((pixel / TILE_SIZE).floor())
